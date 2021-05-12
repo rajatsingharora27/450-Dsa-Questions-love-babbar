@@ -11,9 +11,37 @@ package dynamicProgramming;
 
 public class MinStepsTo1 {
 
+	public static int countToMin1(int n) {
+		
+		if(n==1) {
+			return 0;
+		}
+		
+		int op1=countToMin1(n-1);
+		int minsteps=op1;
+		
+		if(n%2==0) {
+			int op2=countToMin1(n/2);
+			if(op2<minsteps) {
+				minsteps=op2;
+			}
+		}
+		
+		if(n%3==0) {
+			int op3=countToMin1(n/3);
+			if(op3<minsteps) {
+				minsteps=op3;
+			}
+		}
+		
+		return 1+minsteps;	
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		
-		
+		System.out.println(countToMin1(4));
 		
 
 	}
