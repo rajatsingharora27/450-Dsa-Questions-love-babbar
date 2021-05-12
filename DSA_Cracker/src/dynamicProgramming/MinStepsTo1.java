@@ -11,6 +11,7 @@ package dynamicProgramming;
 
 public class MinStepsTo1 {
 
+	// Recursive Solution
 	public static int countToMin1(int n) {
 		
 		if(n==1) {
@@ -37,12 +38,46 @@ public class MinStepsTo1 {
 		return 1+minsteps;	
 	}
 	
+	// using DP
+	public static int countToMinDP(int n) {
+		
+		int storage[]=new int[n+1];
+
+		storage[1]=0;
+
+		for(int i=2;i<=n;i++) {
+
+			int minSteps=storage[i-1];
+
+			if(i%2==0) {
+				int op2=storage[i/2];
+				if(minSteps>op2) {
+					minSteps=op2;
+				}
+			}
+
+			if(i%3==0) {
+				int op3=storage[i/3];
+				if(minSteps>op3) {
+					minSteps=op3;
+				}
+			}
+			
+		storage[i]=1+minSteps;	
+		}
+		for(int i=0;i<n;i++) {
+			System.out.print(storage[i]+" ");
+		}
+		
+		return storage[n];
+	}
+	
 	
 	
 	public static void main(String[] args) {
 		
-		System.out.println(countToMin1(4));
-		
+		//System.out.println(countToMin1(4));
+		System.out.println(countToMinDP(4));
 
 	}
 
