@@ -42,7 +42,7 @@ public class NextGreatestElement {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		long[] arr= {4, 5, 2, 25, 10};
+		long[] arr= {11, 13, 21, 3};
 		long a[]=nextGreatestElement(arr,arr.length);
 		for(int i=0;i<a.length;i++) {
 			System.out.print(a[i]+" ");
