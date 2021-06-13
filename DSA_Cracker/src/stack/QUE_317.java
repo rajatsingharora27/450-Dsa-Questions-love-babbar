@@ -15,7 +15,7 @@ public class QUE_317 {
 		for(int i=0;i<arr2.length;i++) {
 			q2.add(arr2[i]);
 		}
-		
+		return false;
 		
 		
 		
